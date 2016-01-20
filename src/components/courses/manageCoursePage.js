@@ -4,6 +4,7 @@ var React = require('react');
 var Router = require('react-router');
 var CourseActions = require('../../actions/courseActions');
 var CourseStore = require('../../stores/courseStore');
+var AuthorStore = require('../../stores/authorStore');
 var toastr = require('toastr');
 
 var ManageCoursePage = React.createClass({
