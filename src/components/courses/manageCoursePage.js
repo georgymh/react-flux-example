@@ -41,7 +41,14 @@ var ManageCoursePage = React.createClass({
     this.setState({dirty: true});
     var field = event.target.name;
     var value = event.target.value;
+
+    if (field === "author") {
+      value = AuthorStore.getAuthorById(value);
+    }
+
     this.state.course[field] = value;
+
+
     return this.setState({course: this.state.course});
   },
 
@@ -76,19 +83,11 @@ var ManageCoursePage = React.createClass({
     return formIsValid;
   },
 
-  getAuthorById: function(id) {
-    return AuthorStore.getAuthorById(id);
-  },
-
   saveCourse: function(event) {
     event.preventDefault();
 
     if (!this.courseFormIsValid()) {
       return;
-    }
-
-    if (typeof this.state.course.author === "string") {
-      this.state.course.author = this.getAuthorById(this.state.course.author);
     }
 
     if (this.state.course.id) {
