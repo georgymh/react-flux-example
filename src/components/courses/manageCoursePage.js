@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Router = require('react-router');
+var CourseForm = require('./courseForm');
 var CourseActions = require('../../actions/courseActions');
 var CourseStore = require('../../stores/courseStore');
 var AuthorStore = require('../../stores/authorStore');
@@ -77,6 +78,11 @@ var ManageCoursePage = React.createClass({
 
   render: function() {
     return (
+      <CourseForm
+        course={this.state.course}
+        onChange={this.setCourseState}
+        onSave={this.saveCourse}
+        errors={this.state.errors} />
     );
   }
 });
