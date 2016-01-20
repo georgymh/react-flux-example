@@ -35,6 +35,14 @@ var CourseForm = React.createClass({
           onChange={this.props.onChange}
           error={this.props.errors.title} />
 
+        <SelectList
+          name="author"
+          label="Author"
+          options={this.getArrayOfAuthorIds()}
+          defaultOption={this.props.course.author}
+          onChange={this.props.onChange}
+          error={this.props.errors.author} />
+
         <Input
           name="length"
           label="Video Length"

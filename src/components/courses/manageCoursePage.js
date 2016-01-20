@@ -65,6 +65,10 @@ var ManageCoursePage = React.createClass({
       return;
     }
 
+    if (typeof this.state.course.author === "string") {
+      this.state.course.author = this.getAuthorById(this.state.course.author);
+    }
+
     if (this.state.course.id) {
       CourseActions.updateCourse(this.state.course);
     } else {
