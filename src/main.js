@@ -4,6 +4,7 @@ var React = require('react');
 var Router = require('react-router');
 var routes = require('./routes');
 var InitializeActions = require('./actions/initializeActions');
+var BootstrapJs = require('../node_modules/bootstrap/dist/js/bootstrap');
 
 InitializeActions.initApp();
 
