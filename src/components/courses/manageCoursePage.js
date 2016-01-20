@@ -49,6 +49,28 @@ var ManageCoursePage = React.createClass({
     var formIsValid = true;
     this.state.errors = {}; // clear any previous errors.
 
+    if (this.state.course.title.length < 3) {
+      this.state.errors.title = 'Title must be at least 3 characters.';
+      formIsValid = false;
+    }
+
+    if (!this.state.course.author ||
+        this.state.course.author.length < 2 ||
+        this.state.course.author === "none") {
+      this.state.errors.author = 'Please select an author.';
+      formIsValid = false;
+    }
+
+    if (this.state.course.length.length < 4) {
+      this.state.errors.length = 'Video length must be at least 4 characters.';
+      formIsValid = false;
+    }
+
+    if (this.state.course.category.length < 3) {
+      this.state.errors.category = 'Category must be at least 3 characters.';
+      formIsValid = false;
+    }
+
     this.setState({errors: this.state.errors});
 
     return formIsValid;
