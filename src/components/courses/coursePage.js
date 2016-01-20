@@ -4,6 +4,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var CourseActions = require('../../actions/courseActions');
+var CourseList = require('./courseList');
 var CourseStore = require('../../stores/courseStore');
 
 var CoursesPage = React.createClass({
@@ -31,6 +32,7 @@ var CoursesPage = React.createClass({
       <div>
         <h1>Courses</h1>
         <Link to="addCourse" className="btn btn-default">Add Course</Link>
+        <CourseList courses={this.state.courses} />
       </div>
     );
   }
